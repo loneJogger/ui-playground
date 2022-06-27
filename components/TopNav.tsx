@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 
-const SideBar = () => {
+const TopNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAlert, setIsAlert] = useState(false);
 
@@ -14,4 +14,4 @@ const SideBar = () => {
   return <Bar></Bar>;
 };
 
-export default SideBar;
+export default TopNav;

@@ -32,7 +32,7 @@ const Home: NextPage = (props) => {
       <Body>
         <ThemeChanger />
         <Border>
-          <div></div>
+          <div>Hello Hello</div>
         </Border>
       </Body>
     </div>
