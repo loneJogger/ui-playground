@@ -4,14 +4,14 @@ import styled from "@emotion/styled";
 
 import ThemeChanger from "../components/ThemeChanger";
 import useWindowResize from "../hooks/useWindowResize";
-import TopNav from "../components/TopNav";
+import SideNav from "../components/SideNav";
 
 const Home: NextPage = (props) => {
   const size = useWindowResize();
 
   const Body = styled.div`
-    color: ${(props) => props.theme.color.text};
-    background: ${(props) => props.theme.color.background};
+    color: ${(props: any) => props.theme.color.text};
+    background: ${(props: any) => props.theme.color.background};
     width: ${size.width}px;
     height: ${size.height}px;
   `;
@@ -23,7 +23,7 @@ const Home: NextPage = (props) => {
     position: absolute;
     top: 0;
     border: 1px solid;
-    border-color: ${(props) => props.theme.color.text};
+    border-color: ${(props: any) => props.theme.color.text};
     width: ${size.width - 128}px;
     height: ${size.height - 128}px;
   `;
@@ -39,7 +39,7 @@ const Home: NextPage = (props) => {
     <div>
       <Body>
         <ThemeChanger />
-        <TopNav links={navLinks} page_width={size.width} />
+        <SideNav links={navLinks} page_height={size.height} />
         <Border>
           <div>Hello Hello</div>
         </Border>

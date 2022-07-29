@@ -4,7 +4,17 @@ import styled from "@emotion/styled";
 
 import Burger from "./Burger";
 
-const TopNav = (props) => {
+interface navProps {
+  links: link[];
+  page_width: number;
+}
+
+interface link {
+  url: string;
+  text: string;
+}
+
+const TopNav = (props: navProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAlert, setIsAlert] = useState(false);
 
@@ -46,7 +56,11 @@ const TopNav = (props) => {
     return list;
   };
 
-  return props.page_width < 1000 ? <Burger /> : <Bar>{generateNavs()}</Bar>;
+  return props.page_width < 1000 ? (
+    <Burger links={props.links} />
+  ) : (
+    <Bar>{generateNavs()}</Bar>
+  );
 };
 
 export default TopNav;
