@@ -4,6 +4,8 @@ import { ThemeProvider } from "@emotion/react";
 import useDarkMode from "@fisch0920/use-dark-mode";
 
 import ToggleContext from "../themes/ToggleContext";
+import SideNav from "../components/SideNav";
+import useWindowResize from "../hooks/useWindowResize";
 import { darkTheme, lightTheme } from "../themes/themes";
 
 interface Props {
@@ -13,7 +15,16 @@ interface Props {
 const MainLayout = (props: Props) => {
   const [isMounted, setIsMounted] = useState(false);
   const darkMode = useDarkMode(false);
+  const size = useWindowResize();
   const currentTheme = darkMode.value ? darkTheme : lightTheme;
+
+  const navLinks = [
+    { url: "/", text: "Home" },
+    { url: "#", text: "link 2" },
+    { url: "#", text: "link 3" },
+    { url: "#", text: "link 4" },
+  ];
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -32,6 +43,7 @@ const MainLayout = (props: Props) => {
               toggleTheme: darkMode.toggle,
             }}
           >
+            <SideNav links={navLinks} page_height={size.height} />
             {props.children}
           </ToggleContext.Provider>
         )}
